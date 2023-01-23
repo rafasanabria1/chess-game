@@ -1,18 +1,18 @@
 <template>
     <div class="chess-letter-row">
-      <div :class="`chess-letter-field ${position}`">A</div>
-      <div :class="`chess-letter-field ${position}`">B</div>
-      <div :class="`chess-letter-field ${position}`">C</div>
-      <div :class="`chess-letter-field ${position}`">D</div>
-      <div :class="`chess-letter-field ${position}`">E</div>
-      <div :class="`chess-letter-field ${position}`">F</div>
-      <div :class="`chess-letter-field ${position}`">G</div>
-      <div :class="`chess-letter-field ${position}`">H</div>
+      <div :class="`chess-letter-field ${columnPosition}`">A</div>
+      <div :class="`chess-letter-field ${columnPosition}`">B</div>
+      <div :class="`chess-letter-field ${columnPosition}`">C</div>
+      <div :class="`chess-letter-field ${columnPosition}`">D</div>
+      <div :class="`chess-letter-field ${columnPosition}`">E</div>
+      <div :class="`chess-letter-field ${columnPosition}`">F</div>
+      <div :class="`chess-letter-field ${columnPosition}`">G</div>
+      <div :class="`chess-letter-field ${columnPosition}`">H</div>
     </div>
 </template>
 
 <script setup>
 
-    const {position} = defineProps (['position']);
+    const {columnPosition} = defineProps (['columnPosition']);
     
 </script>
