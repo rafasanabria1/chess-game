@@ -1,6 +1,6 @@
 <template>
-    <div class="chess-field">
-        <img class="" :src=imgUrl />
+    <div class="chess-field" @click="handleClick">
+        <img v-if="type && name != ''" class="" :src=imgUrl />
     </div>
 </template>
 
@@ -12,5 +12,9 @@
     const {type, name, coordinates} = defineProps (['type', 'name', 'coordinates']);
     const imgUrl                    = getPieceImageUrl (type, name);
 
-    console.log (coordinates);
+    const handleClick = () => {
+
+        console.log (coordinates);
+    }
+    
 </script>
