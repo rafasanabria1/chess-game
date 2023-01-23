@@ -1,6 +1,6 @@
 
-const getPieceImageUrl = (type, name) => {
-    return new URL(`./assets/${type}/${name}.svg`, import.meta.url).href
+const getPieceImageUrl = (piece) => {
+    return new URL(`./assets/${piece.type}/${piece.name}.svg`, import.meta.url).href
 }
 
 

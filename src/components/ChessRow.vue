@@ -1,37 +1,36 @@
 <template>
 
-    <div v-if="rowPosition == 1 || rowPosition == 8" :class="`chess-row ${rowPosition % 2 == 0 ? 'even' : 'odd'}`">
+    <div :class="`chess-row ${rowPosition % 2 == 0 ? 'even' : 'odd'}`">
       <div class="chess-number-field start">{{ rowPosition }}</div>
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="rook" :coordinates="{x: 1, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="knight" :coordinates="{x: 2, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="bishop" :coordinates="{x: 3, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="king" :coordinates="{x: 4, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="queen" :coordinates="{x: 5, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="bishop" :coordinates="{x: 6, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="knight" :coordinates="{x: 7, y: rowPosition}" />
-        <piece :type="`${rowPosition == 1 ? 'black' : 'white'}`" name="rook" :coordinates="{x: 8, y: rowPosition}" />
+      <template v-if="rowPosition == 1" v-for="(p, index) in getBlacksNotPawns">
+        <piece :class="`${index}`" :piece="p" type="black" :name="p.name" :coordinates="p.coordinates" />
+      </template>
+      <template v-else-if="rowPosition == 2" v-for="(p, index) in getBlacksPawns">
+        <piece :class="`${index}`" :piece="p" type="black" :name="p.name" :coordinates="p.coordinates" />
+        </template>
+      <template v-else-if="rowPosition == 7" v-for="(p, index) in getWhitesNotPawns">
+        <piece :class="`${index}`" :piece="p" type="white" :name="p.name" :coordinates="p.coordinates" />
+      </template>
+      <template v-else-if="rowPosition == 8" v-for="(p, index) in getWhitesPawns">
+        <piece :class="`${index}`" :piece="p" type="white" :name="p.name" :coordinates="p.coordinates" />
+      </template>
+      <template v-else>
+        <piece v-for="i in 8" :key="i" :piece="{}" type="false" name="" :coordinates="{x: i, y: rowPosition}" />
+      </template>
       <div class="chess-number-field end">{{ rowPosition }}</div>
     </div>
-
-    <div v-else-if="rowPosition == 2 || rowPosition == 7" :class="`chess-row ${rowPosition % 2 == 0 ? 'even' : 'odd'}`">
-      <div class="chess-number-field start">{{ rowPosition }}</div>
-      <piece v-for="i in 8" :key="i" :type="`${rowPosition == 2 ? 'black' : 'white'}`" name="pawn" :coordinates="{x: i, y: rowPosition}" />
-      <div class="chess-number-field end">{{ rowPosition }}</div>
-    </div>
-
-    <div v-else>
-        <div :class="`chess-row ${rowPosition % 2 == 0 ? 'even' : 'odd'}`">
-            <div class="chess-number-field start">{{ rowPosition }}</div>
-            <piece v-for="i in 8" :key="i" type=false name="" :coordinates="{x: i, y: rowPosition}"></piece>
-            <div class="chess-number-field end">{{ rowPosition }}</div>
-        </div>
-    </div>
+    
+    
 </template>
 
 <script setup>
 
     import Piece from './Piece.vue';
+    import { usePiecesStore } from '../stores/pieces';
+    import { storeToRefs } from 'pinia';
     
     const {rowPosition} = defineProps (['rowPosition']);
-    
+    const piecesStore   = usePiecesStore ();
+    const { pieces, getBlacksNotPawns, getBlacksPawns, getWhitesNotPawns, getWhitesPawns } = storeToRefs (piecesStore)
+
 </script>
