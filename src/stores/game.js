@@ -1,9 +1,12 @@
 import { defineStore } from "pinia";
 import { getPieceImageUrl } from "../utils";
+import { TURNS } from "../vars";
 
-export const usePiecesStore = defineStore ('pieces', {
+export const useGameStore = defineStore ('pieces', {
 
     state: () => {
+
+        var turn = TURNS.WHITES;
 
         const pieces = [
             {
@@ -138,7 +141,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whiterook1',
                 type: 'white',
                 name: 'rook',
-                coordinates: {x: 1, y:7},
+                coordinates: {x: 1, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'rook')
             },
@@ -146,7 +149,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whiteknight1',
                 type: 'white',
                 name: 'knight',
-                coordinates: {x: 2, y:7},
+                coordinates: {x: 2, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'knight')
             },
@@ -154,7 +157,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitebishop1',
                 type: 'white',
                 name: 'bishop',
-                coordinates: {x: 3, y:7},
+                coordinates: {x: 3, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'bishop')
             },
@@ -162,7 +165,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whiteking',
                 type: 'white',
                 name: 'king',
-                coordinates: {x: 4, y:7},
+                coordinates: {x: 4, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'king')
             },
@@ -170,7 +173,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitequeen',
                 type: 'white',
                 name: 'queen',
-                coordinates: {x: 5, y:7},
+                coordinates: {x: 5, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'queen')
             },
@@ -178,7 +181,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitebishop2',
                 type: 'white',
                 name: 'rook',
-                coordinates: {x: 6, y:7},
+                coordinates: {x: 6, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'rook')
             },
@@ -186,7 +189,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whiteknight2',
                 type: 'white',
                 name: 'knight',
-                coordinates: {x: 7, y:7},
+                coordinates: {x: 7, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'knight')
             },
@@ -194,7 +197,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whiterook2',
                 type: 'white',
                 name: 'rook',
-                coordinates: {x: 8, y:7},
+                coordinates: {x: 8, y:8},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'rook')
             },
@@ -202,7 +205,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn1',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 1, y:8},
+                coordinates: {x: 1, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -210,7 +213,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn2',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 2, y:8},
+                coordinates: {x: 2, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -218,7 +221,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn3',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 3, y:8},
+                coordinates: {x: 3, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -226,7 +229,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn4',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 4, y:8},
+                coordinates: {x: 4, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -234,7 +237,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn5',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 5, y:8},
+                coordinates: {x: 5, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -242,7 +245,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn6',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 6, y:8},
+                coordinates: {x: 6, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -250,7 +253,7 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn7',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 7, y:8},
+                coordinates: {x: 7, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             },
@@ -258,13 +261,13 @@ export const usePiecesStore = defineStore ('pieces', {
                 id: 'whitepawn8',
                 type: 'white',
                 name: 'pawn',
-                coordinates: {x: 8, y:8},
+                coordinates: {x: 8, y:7},
                 out: false,
                 imageURL: getPieceImageUrl ('white', 'pawn')
             }
         ];
 
-        return { pieces }
+        return { pieces, turn }
     },
 
     getters: {
@@ -290,6 +293,9 @@ export const usePiecesStore = defineStore ('pieces', {
 
     actions: {
 
-        
+        changeTurn () {
+
+            this.turn = (this.turn == TURNS.WHITES ? TURNS.BLACKS : TURNS.WHITES);
+        }
     }
 });

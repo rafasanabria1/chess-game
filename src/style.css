@@ -5,6 +5,7 @@ body {
   width: 100vw;
   align-items: center;
   justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .chess-board {
@@ -29,20 +30,20 @@ body {
   align-items: center;
 }
 
+.chess-field.dark {
+  background-color: rgb(222, 188, 102);
+}
+
+.chess-field.light {
+  background-color: rgb(255, 255, 255);
+}
+
 .chess-letter-field {
   border: solid 1px white;
   width: 5em;
   height: 2em;
   display: flex;
   justify-content: center;
-}
-
-.chess-number-field {
-  border: solid 1px white;
-  width: 2em;
-  height: 5em;
-  display: flex;
-  align-items: center;
 }
 
 .chess-letter-field.start {
@@ -55,6 +56,14 @@ body {
   padding-top: 0.2em;
 }
 
+.chess-number-field {
+  border: solid 1px white;
+  width: 2em;
+  height: 5em;
+  display: flex;
+  align-items: center;
+}
+
 .chess-number-field.start {
   justify-content: flex-end;
   padding-right: 0.2em;
@@ -65,12 +74,10 @@ body {
   padding-left: 0.2em;
 }
 
-.chess-row.odd .chess-field:nth-child(odd),
-.chess-row.even .chess-field:nth-child(even) {
-  background-color: rgb(222, 188, 102);
-}
+.info-turn {
 
-.chess-row.odd .chess-field:nth-child(even)
-.chess-row.even .chess-field:nth-child(odd) {
-  background-color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 18px;
 }
